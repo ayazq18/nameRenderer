@@ -1,5 +1,6 @@
 import React from "react";
 
+// Define the border styles
 const borderStyles = [
   { color: "green", border: "3px solid green" },
   { color: "purple", border: "3px solid purple" },
@@ -7,18 +8,19 @@ const borderStyles = [
   { color: "brown", border: "3px solid #A0522D" },
 ];
 
-const NameCard = ({ name, location, index }) => {
-  const isSpecial = index < 4;
-  const style = isSpecial
-    ? {
-        border: borderStyles[index]?.border,
-        color: borderStyles[index]?.color,
-        fontWeight: "bold",
-      }
-    : {
-        border: "2px solid black",
-        color: "black",
-      };
+const getRandomStyle = () => {
+  const randomIndex = Math.floor(Math.random() * borderStyles.length);
+  return borderStyles[randomIndex];
+};
+
+const NameCard = ({ name, location }) => {
+  const randomStyle = getRandomStyle(); // get a random style for this render
+
+  const style = {
+    border: randomStyle.border,
+    color: randomStyle.color,
+    fontWeight: "bold",
+  };
 
   return (
     <div className="card" style={style}>
