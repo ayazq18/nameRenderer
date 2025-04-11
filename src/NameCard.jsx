@@ -1,5 +1,6 @@
 import React from "react";
-
+import { Icon } from "@iconify/react";
+import flowerIcon from "@iconify-icons/mdi/flower";
 // Define the border styles
 const borderStyles = [
   { color: "green", border: "3px solid green" },
@@ -23,10 +24,18 @@ const NameCard = ({ name, location }) => {
   };
 
   return (
-    <div className="card" style={style}>
+    <div className="name-card" style={style}>
+      {/* <div className="icon-container">
+        <Icon icon={flowerIcon} width="24" height="24" />
+      </div> */}
+      <div className="card-content">
       <div className="card-name">{name}</div>
-      <div className="card-location">{location}</div>
+      {/* <div className="card-location">{location}</div> */}
       <div className="card-with-family">WITH FAMILY</div>
+      </div>
+      <div className="icon-container-btm">
+        <Icon icon={flowerIcon} width="24" height="24" />
+      </div>
     </div>
   );
 };
